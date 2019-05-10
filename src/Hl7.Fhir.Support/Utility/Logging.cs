@@ -93,6 +93,14 @@ namespace Hl7.Fhir.Utility
         }
 
         /// <summary>
+        /// Creates an <see cref="NotSupportedException"/>
+        /// </summary>
+        public static NotSupportedException NotSupported(string message, Exception innerException)
+        {
+            return new NotSupportedException(message, innerException);
+        }
+
+        /// <summary>
         /// Creates an <see cref="NotImplementedException"/>.
         /// </summary>
         public static NotImplementedException NotImplemented(string message)

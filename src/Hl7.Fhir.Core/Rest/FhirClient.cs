@@ -1125,10 +1125,10 @@ namespace Hl7.Fhir.Rest
             {
                 conf = CapabilityStatement(SummaryType.True); // don't get the full version as its huge just to read the fhir version
             }
-            catch (FormatException)
+            catch (FormatException fe)
             {
                 // Mmmm...cannot even read the body. Probably not so good.
-                throw Error.NotSupported("Cannot read the conformance statement of the server to verify FHIR version compatibility");
+                throw Error.NotSupported("Cannot read the conformance statement of the server to verify FHIR version compatibility", fe);
             }
 
             if (!conf.FhirVersion.StartsWith(ModelInfo.Version))
